@@ -12,7 +12,7 @@
             background-color: #f3f4f6;
         }
         
-        /* 灰階隱藏狀態的核心 CSS */
+        /* 動態篩選的灰階狀態 */
         .schedule-row {
             transition: all 0.4s ease;
         }
@@ -24,6 +24,22 @@
         .schedule-row.inactive * {
             border-color: #d1d5db !important;
             color: #9ca3af !important;
+        }
+
+        /* 過去式時程的專屬樣式 (預設隱藏且灰階) */
+        .past-event {
+            display: none; /* 預設摺疊 */
+            filter: grayscale(100%);
+            opacity: 0.5;
+            background-color: #f3f4f6;
+        }
+        /* 透過 JavaScript 切換顯示狀態 */
+        .past-event.show-past {
+            display: table-row;
+        }
+        /* 若過去事件又被上方 Toggle 篩選掉，透明度變得更低 */
+        .past-event.inactive {
+            opacity: 0.15;
         }
 
         /* 自訂勾選框樣式 */
@@ -45,8 +61,9 @@
             body { background-color: #ffffff; }
             .print-shadow-none { box-shadow: none !important; }
             .print-border { border: 1px solid #e5e7eb !important; }
-            .no-print { display: none !important; } /* 列印時隱藏控制面板 */
-            .schedule-row.inactive { display: none !important; } /* 列印時直接不顯示無關項目 */
+            .no-print { display: none !important; }
+            .schedule-row.inactive { display: none !important; }
+            .past-event { display: none !important; } /* 列印時一律隱藏過去事件 */
         }
     </style>
 </head>
@@ -59,28 +76,35 @@
             <p class="text-blue-100 md:text-lg">專屬升學備忘錄：請勾選欲參加的管道</p>
         </div>
 
-        <div class="bg-blue-50 border-b border-blue-200 p-4 md:p-6 no-print">
-            <h3 class="font-bold text-blue-800 mb-3 flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
-                篩選入學管道
-            </h3>
-            <div class="flex flex-wrap gap-4 text-sm md:text-base">
-                <label class="checkbox-label font-bold text-blue-900 bg-white px-3 py-2 rounded shadow-sm border border-blue-200 hover:bg-blue-100 transition">
-                    <input type="checkbox" class="channel-toggle" value="main" checked> 分區大免
-                </label>
-                <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                    <input type="checkbox" class="channel-toggle" value="prior" checked> 完免 / 優免
-                </label>
-                <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                    <input type="checkbox" class="channel-toggle" value="five" checked> 五專 (優免/聯免)
-                </label>
-                <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                    <input type="checkbox" class="channel-toggle" value="spec" checked> 特色招生
-                </label>
-                <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                    <input type="checkbox" class="channel-toggle" value="art" checked> 藝才 / 體育班
-                </label>
+        <div class="bg-blue-50 border-b border-blue-200 p-4 md:p-6 no-print flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <h3 class="font-bold text-blue-800 mb-3 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                    篩選入學管道 (未勾選的項目會變灰)
+                </h3>
+                <div class="flex flex-wrap gap-3 text-sm md:text-base">
+                    <label class="checkbox-label font-bold text-blue-900 bg-white px-3 py-2 rounded shadow-sm border border-blue-200 hover:bg-blue-100 transition">
+                        <input type="checkbox" class="channel-toggle" value="main" checked> 分區大免
+                    </label>
+                    <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
+                        <input type="checkbox" class="channel-toggle" value="prior" checked> 完免 / 優免
+                    </label>
+                    <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
+                        <input type="checkbox" class="channel-toggle" value="five" checked> 五專 (優免/聯免)
+                    </label>
+                    <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
+                        <input type="checkbox" class="channel-toggle" value="spec" checked> 特色招生
+                    </label>
+                    <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
+                        <input type="checkbox" class="channel-toggle" value="art" checked> 藝才 / 體育班
+                    </label>
+                </div>
             </div>
+            
+            <button id="toggle-past-btn" class="self-start md:self-end mt-2 md:mt-0 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded shadow-sm transition border border-gray-300 flex items-center text-sm">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span id="btn-text">展開 6/5 前的前置作業紀錄</span>
+            </button>
         </div>
 
         <div class="overflow-x-auto p-4 md:p-8">
@@ -94,6 +118,77 @@
                 </thead>
                 <tbody class="text-sm md:text-base divide-y divide-gray-200" id="schedule-body">
                     
+                    <tr class="schedule-row past-event" data-categories="art">
+                        <td class="p-4 text-gray-500">2/23 ~ 3/9</td>
+                        <td class="p-4"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">藝才班</span>術科測驗報名</td>
+                        <td class="p-4 text-gray-500 text-sm">前置作業</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="base">
+                        <td class="p-4 text-gray-500">3/5 ~ 3/7</td>
+                        <td class="p-4"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">共同</span>國中教育會考報名</td>
+                        <td class="p-4 text-gray-500 text-sm">依學校為準</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="spec">
+                        <td class="p-4 text-gray-500">3/9 ~ 3/13</td>
+                        <td class="p-4"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">特色招生</span>專業群科甄選入學報名</td>
+                        <td class="p-4 text-gray-500 text-sm">前置作業</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="base">
+                        <td class="p-4 text-gray-500">4/10 (五)</td>
+                        <td class="p-4"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">共同</span>寄發會考准考證</td>
+                        <td class="p-4 text-gray-500 text-sm">由國中統一發放</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="spec art">
+                        <td class="p-4 text-gray-500">4/11 ~ 4/19</td>
+                        <td class="p-4">
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">特色招生</span>專業群科術科測驗 (4/11-12)</div>
+                            <div><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">藝才班</span>音樂/舞蹈/美術/戲劇 術科測驗</div>
+                        </td>
+                        <td class="p-4 text-gray-500 text-sm">前置作業</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="five">
+                        <td class="p-4 text-gray-500">4/28 ~ 5/4</td>
+                        <td class="p-4"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">五專完免</span>五專完全免試入學報名</td>
+                        <td class="p-4 text-gray-500 text-sm">前置作業</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="prior">
+                        <td class="p-4 text-gray-500">5/5 ~ 5/6</td>
+                        <td class="p-4"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">完全免試</span>學習區完全免試入學報名</td>
+                        <td class="p-4 text-gray-500 text-sm">前置作業</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="prior five">
+                        <td class="p-4 text-gray-500 font-bold">5/14 (四)</td>
+                        <td class="p-4">
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-300 text-gray-700 rounded text-xs mr-2">完全免試</span>放榜</div>
+                            <div><span class="inline-block px-2 py-1 bg-gray-300 text-gray-700 rounded text-xs mr-2">五專完免</span>放榜</div>
+                        </td>
+                        <td class="p-4 text-gray-500 text-sm">皆為不採計會考成績之管道</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="base">
+                        <td class="p-4 text-gray-600 font-bold">5/16 ~ 5/17</td>
+                        <td class="p-4 font-bold text-gray-700"><span class="inline-block px-2 py-1 bg-gray-300 text-gray-700 rounded text-xs mr-2">共同</span>國中教育會考 正式考試</td>
+                        <td class="p-4 text-gray-500 text-sm">全國統一</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="prior five spec art">
+                        <td class="p-4 text-gray-500">5/18 ~ 5/22</td>
+                        <td class="p-4">
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">優先免試</span>各區辦理優先免試入學開始日 (5/18起)</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">五專優免</span>五專優先免試入學報名</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">體育班</span>甄選入學術科測驗報名 (5/18-20)</div>
+                            <div><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">特色招生</span>專業群科術科測驗成績公告 (5/18)</div>
+                        </td>
+                        <td class="p-4 text-gray-500 text-sm">會考後第一週之密集報名期</td>
+                    </tr>
+                    <tr class="schedule-row past-event" data-categories="art">
+                        <td class="p-4 text-gray-500">5/23 ~ 5/25</td>
+                        <td class="p-4"><span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs mr-2">體育班</span>術科測驗(5/23)與放榜(5/25)</td>
+                        <td class="p-4 text-gray-500 text-sm"></td>
+                    </tr>
+
+                    <tr class="past-event bg-gray-200">
+                        <td colspan="3" class="p-2 text-center text-gray-600 font-bold text-sm tracking-widest">以上為 6/5 前之歷史紀錄</td>
+                    </tr>
+
                     <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="base">
                         <td class="p-4 font-bold text-red-600">6/5 (五)</td>
                         <td class="p-4 leading-relaxed">
@@ -236,34 +331,62 @@
             </table>
         </div>
 
-        
+        <div class="bg-gray-50 border-t-2 border-gray-200 p-6 md:p-8 no-print">
+            <h3 class="text-lg font-bold text-blue-800 mb-3 flex items-center">
+                💡 貼心小提示
+            </h3>
+            <p class="text-gray-700 text-sm md:text-base ml-2">
+                若您打算將這份專屬行程表印出來貼在牆上，可以直接按下 <strong>Ctrl + P (Mac 請按 Cmd + P)</strong>。<br>
+                系統已經為您設定好列印格式：未勾選而變成灰階的項目，以及上方的勾選面板，在列印時都會<strong>自動隱藏</strong>，為您省下墨水，版面也會更乾淨！
+            </p>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const toggles = document.querySelectorAll('.channel-toggle');
             const rows = document.querySelectorAll('.schedule-row');
+            
+            // 處理「展開過去事件」按鈕
+            const pastBtn = document.getElementById('toggle-past-btn');
+            const btnText = document.getElementById('btn-text');
+            const pastEvents = document.querySelectorAll('.past-event');
+            let isPastShown = false;
 
+            pastBtn.addEventListener('click', () => {
+                isPastShown = !isPastShown;
+                if (isPastShown) {
+                    pastEvents.forEach(el => el.classList.add('show-past'));
+                    btnText.innerText = '收合 6/5 前的歷史紀錄';
+                    pastBtn.classList.replace('bg-gray-200', 'bg-blue-100');
+                    pastBtn.classList.replace('text-gray-700', 'text-blue-800');
+                } else {
+                    pastEvents.forEach(el => el.classList.remove('show-past'));
+                    btnText.innerText = '展開 6/5 前的前置作業紀錄';
+                    pastBtn.classList.replace('bg-blue-100', 'bg-gray-200');
+                    pastBtn.classList.replace('text-blue-800', 'text-gray-700');
+                }
+            });
+
+            // 處理管道篩選 (包含過去事件的篩選)
             function updateFilters() {
-                // 1. 取得目前有被「打勾」的所有管道值 (例如: ['main', 'five'])
                 const activeChannels = Array.from(toggles)
                     .filter(toggle => toggle.checked)
                     .map(toggle => toggle.value);
 
-                // 2. 檢查表格每一列
                 rows.forEach(row => {
+                    // 若這列是純粹的分隔線 (沒有 data-categories)，就跳過
+                    if (!row.hasAttribute('data-categories')) return;
+
                     const rowCategories = row.getAttribute('data-categories').split(' ');
 
-                    // 如果這列包含 'base' (共同項目)，永遠正常顯示
                     if (rowCategories.includes('base')) {
                         row.classList.remove('inactive');
                         return;
                     }
 
-                    // 檢查這列的管道標籤中，是否至少有一個存在於「有被打勾的管道清單」中
                     const isMatch = rowCategories.some(cat => activeChannels.includes(cat));
 
-                    // 根據結果套用或移除灰階 CSS Class
                     if (isMatch) {
                         row.classList.remove('inactive');
                     } else {
@@ -272,12 +395,10 @@
                 });
             }
 
-            // 3. 幫每個勾選框綁定事件，只要有變更就重新執行 updateFilters
             toggles.forEach(toggle => {
                 toggle.addEventListener('change', updateFilters);
             });
 
-            // 網頁載入時先執行一次，確保初始狀態正確
             updateFilters();
         });
     </script>
