@@ -174,12 +174,12 @@
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="art" data-start="0523" data-end="0525">
                         <td class="p-4 font-medium text-gray-600">5/23 ~ 5/25</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">體育班</span>術科測驗(5/23)與放榜(5/25)</td>
-                        <td class="p-4 text-gray-600 text-sm"></td>
+                        <td class="p-4 text-gray-600 text-sm">參加體育班甄選者須應考術科並確認放榜結果。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="prior" data-start="0528" data-end="0605">
                         <td class="p-4 font-medium text-gray-600">5/28 ~ 6/5</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2 mb-1">完免/優免</span>各校直升入學報名</td>
-                        <td class="p-4 text-gray-600 text-sm"></td>
+                        <td class="p-4 text-gray-600 text-sm">直升校內高中職之管道報名作業。</td>
                     </tr>
 
                     <tr class="past-event bg-gray-200 border-b-2 border-gray-400">
@@ -214,7 +214,7 @@
                     </tr>
 
                     <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="prior five spec" data-start="0611" data-end="0611">
-                        <td class="p-4 font-bold text-blue-700">6/11 (四)</td>
+                        <td class="p-4 font-bold text-blue-700">6/11 (鍋)</td>
                         <td class="p-4 leading-relaxed">
                             <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完免/優免</span>各校直升入學放榜截止日</div>
                             <div class="mb-1"><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專優免</span>五專優先免試入學放榜</div>
@@ -298,13 +298,13 @@
                     <tr class="schedule-row bg-blue-100 hover:bg-blue-200 transition-colors border-l-4 border-blue-600" data-categories="main spec" data-start="0625" data-end="0625">
                         <td class="p-4 font-bold text-blue-800">6/25 (四)</td>
                         <td class="p-4 leading-relaxed font-bold text-blue-900">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>個人序位查詢截止</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>志願選填截止</div>
                             <div><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>免試入學、特色招生考試分發<span class="text-red-600">志願選填截止日</span></div>
                         </td>
                         <td class="p-4 text-blue-800 font-bold">❗ 務必於期限前確認所有志願序並完成系統送出作業。</td>
                     </tr>
 
-                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="main spec" data-start="0630" data-end="0630">
+                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="main" data-start="0630" data-end="0630">
                         <td class="p-4 font-medium text-gray-600">6/30 (二)</td>
                         <td class="p-4 leading-relaxed">
                             <span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2 mb-1">分區大免</span>
@@ -457,9 +457,7 @@
                     tr.className = 'bg-yellow-200 border-y-2 border-yellow-500 no-print shadow-sm';
                     tr.innerHTML = `<td colspan="3" class="p-3 text-center text-yellow-900 font-bold tracking-wider text-sm md:text-base">📍 今天是 ${currentM} 月 ${currentD} 日，目前進度在這裡 📍</td>`;
                     
-                    if (todayStr <= "0605") {
-                        togglePastEvents(true);
-                    }
+                    // 已移除自動調用 togglePastEvents(true) 的強制展開邏輯
                     
                     tbody.insertBefore(tr, row);
                     dividerInserted = true;
