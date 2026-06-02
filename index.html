@@ -28,7 +28,7 @@
 
         /* 過去式時程的專屬樣式 (預設隱藏) */
         .past-event {
-            display: none; /* 預設摺疊 */
+            display: none; 
         }
         .past-event.show-past {
             display: table-row;
@@ -79,16 +79,16 @@
                         <input type="checkbox" class="channel-toggle" value="main" checked> 分區大免
                     </label>
                     <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                        <input type="checkbox" class="channel-toggle" value="prior" checked> 完免 / 優免
+                        <input type="checkbox" class="channel-toggle" value="prior" checked> 優免/完免/直升
                     </label>
                     <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
                         <input type="checkbox" class="channel-toggle" value="five" checked> 五專 (優免/聯免)
                     </label>
                     <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                        <input type="checkbox" class="channel-toggle" value="spec" checked> 特色招生
+                        <input type="checkbox" class="channel-toggle" value="spec" checked> 特招/技優/實用技能
                     </label>
                     <label class="checkbox-label text-gray-700 bg-white px-3 py-2 rounded shadow-sm border border-gray-200 hover:bg-gray-100 transition">
-                        <input type="checkbox" class="channel-toggle" value="art" checked> 藝才 / 體育班
+                        <input type="checkbox" class="channel-toggle" value="art" checked> 藝才/體育/運動績優
                     </label>
                 </div>
             </div>
@@ -113,22 +113,22 @@
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="art" data-start="0223" data-end="0309">
                         <td class="p-4 font-medium text-gray-600">2/23 ~ 3/9</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">藝才班</span>術科測驗報名</td>
-                        <td class="p-4 text-gray-600 text-sm">須提早確認報考資格並繳交相關報名表件。</td>
+                        <td class="p-4 text-gray-600 text-sm">音樂/美術/舞蹈/戲劇班甄選。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="base" data-start="0305" data-end="0307">
                         <td class="p-4 font-bold text-gray-700">3/5 ~ 3/7</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-gray-600 text-white rounded text-xs font-bold mr-2 mb-1">共同</span>國中教育會考報名</td>
-                        <td class="p-4 text-gray-600 text-sm">由國中端集體報名，學生需確認報考資料是否正確。</td>
+                        <td class="p-4 text-gray-600 text-sm">由國中端集體報名。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-teal-50 transition-colors" data-categories="spec" data-start="0309" data-end="0313">
                         <td class="p-4 font-medium text-gray-600">3/9 ~ 3/13</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2 mb-1">特色招生</span>專業群科甄選入學報名</td>
-                        <td class="p-4 text-gray-600 text-sm">報考技高特招者，須於此時完成報名手續。</td>
+                        <td class="p-4 text-gray-600 text-sm">報考技高特招者於此時完成手續。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="base" data-start="0410" data-end="0410">
                         <td class="p-4 font-bold text-gray-700">4/10 (五)</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-gray-600 text-white rounded text-xs font-bold mr-2 mb-1">共同</span>寄發會考准考證</td>
-                        <td class="p-4 text-gray-600 text-sm">由國中統一發放，收到後務必核對個人資料及考區。</td>
+                        <td class="p-4 text-gray-600 text-sm">由國中統一發放。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="spec art" data-start="0411" data-end="0419">
                         <td class="p-4 font-medium text-gray-600">4/11 ~ 4/19</td>
@@ -136,35 +136,35 @@
                             <div class="mb-1"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>專業群科術科測驗 (4/11-12)</div>
                             <div><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">藝才班</span>音樂/舞蹈/美術/戲劇 術科測驗</div>
                         </td>
-                        <td class="p-4 text-gray-600 text-sm">各類別依簡章規定時間與地點進行實作或術科測驗。</td>
+                        <td class="p-4 text-gray-600 text-sm">依簡章規定進行實作或術科測驗。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-purple-50 transition-colors" data-categories="five" data-start="0428" data-end="0504">
                         <td class="p-4 font-medium text-gray-600">4/28 ~ 5/4</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2 mb-1">五專完免</span>完全免試入學報名</td>
-                        <td class="p-4 text-gray-600 text-sm">欲就讀五專完免志願者，須完成網路或現場報名作業。</td>
+                        <td class="p-4 text-gray-600 text-sm">五專完免專屬報名。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-green-50 transition-colors" data-categories="prior" data-start="0505" data-end="0506">
                         <td class="p-4 font-medium text-gray-600">5/5 ~ 5/6</td>
-                        <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2 mb-1">完全免試</span>學習區完全免試入學報名</td>
-                        <td class="p-4 text-gray-600 text-sm">各學習區內國中生可直接報名對應之高中職。</td>
+                        <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2 mb-1">完免/優免</span>學習區完全免試入學報名</td>
+                        <td class="p-4 text-gray-600 text-sm">報名對應之高中職。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-blue-50 transition-colors" data-categories="prior five" data-start="0514" data-end="0514">
                         <td class="p-4 font-bold text-gray-700">5/14 (四)</td>
                         <td class="p-4 leading-relaxed">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完全免試</span>放榜</div>
-                            <div><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專完免</span>放榜</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完免/優免</span>學習區完免放榜</div>
+                            <div><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專完免</span>五專完免放榜</div>
                         </td>
-                        <td class="p-4 text-gray-600 text-sm">公告不採計會考成績之各完免管道錄取名單。</td>
+                        <td class="p-4 text-gray-600 text-sm">不採計會考成績之各完免管道錄取。</td>
                     </tr>
                     <tr class="schedule-row past-event bg-red-50 hover:bg-red-100 transition-colors border-l-4 border-red-400" data-categories="base" data-start="0516" data-end="0517">
                         <td class="p-4 font-bold text-red-700">5/16 ~ 5/17</td>
                         <td class="p-4 leading-relaxed font-bold text-red-900"><span class="inline-block px-2 py-1 bg-red-600 text-white rounded text-xs font-bold mr-2 mb-1">共同</span>國中教育會考 正式考試</td>
-                        <td class="p-4 text-red-800 text-sm">全國統一測驗日，學生依准考證試場應試。</td>
+                        <td class="p-4 text-red-800 text-sm">全國統一測驗日。</td>
                     </tr>
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="prior five spec art" data-start="0518" data-end="0522">
                         <td class="p-4 font-medium text-gray-600">5/18 ~ 5/22</td>
                         <td class="p-4 leading-relaxed">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">優先免試</span>各區辦理優先免試入學開始日 (5/18起)</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完免/優免</span>各區辦理優先免試入學開始日 (5/18起)</div>
                             <div class="mb-1"><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專優免</span>優先免試入學報名</div>
                             <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">體育班</span>甄選入學術科測驗報名 (5/18-20)</div>
                             <div><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>專業群科術科測驗成績公告 (5/18)</div>
@@ -174,20 +174,25 @@
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="art" data-start="0523" data-end="0525">
                         <td class="p-4 font-medium text-gray-600">5/23 ~ 5/25</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">體育班</span>術科測驗(5/23)與放榜(5/25)</td>
-                        <td class="p-4 text-gray-600 text-sm">參加體育班甄選者須應考術科並確認放榜結果。</td>
+                        <td class="p-4 text-gray-600 text-sm"></td>
+                    </tr>
+                    <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="prior" data-start="0528" data-end="0605">
+                        <td class="p-4 font-medium text-gray-600">5/28 ~ 6/5</td>
+                        <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2 mb-1">完免/優免</span>各校直升入學報名</td>
+                        <td class="p-4 text-gray-600 text-sm"></td>
                     </tr>
 
                     <tr class="past-event bg-gray-200 border-b-2 border-gray-400">
                         <td colspan="3" class="p-3 text-center text-gray-700 font-bold tracking-widest text-sm">⬆️ 以上為 6/5 前之歷史紀錄 ⬆️</td>
                     </tr>
 
-                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="base" data-start="0605" data-end="0605">
-                        <td class="p-4 font-bold text-red-600">6/5 (五)</td>
-                        <td class="p-4 leading-relaxed">
-                            <span class="inline-block px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-bold mr-2 mb-1">共同</span> 
-                            會考成績公布、寄發成績單
+                    <tr class="schedule-row bg-red-50 hover:bg-red-100 transition-colors border-l-4 border-red-500" data-categories="base" data-start="0605" data-end="0605">
+                        <td class="p-4 font-bold text-red-700">6/5 (五)</td>
+                        <td class="p-4 leading-relaxed font-bold text-red-900">
+                            <span class="inline-block px-2 py-1 bg-red-600 text-white rounded text-xs font-bold mr-2 mb-1">共同</span> 
+                            寄發國中教育會考成績通知單並開放網路查詢
                         </td>
-                        <td class="p-4 text-gray-600">當日同步開放網路查詢會考成績。</td>
+                        <td class="p-4 text-red-800">重要日程。</td>
                     </tr>
 
                     <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="art" data-start="0605" data-end="0611">
@@ -199,31 +204,48 @@
                         <td class="p-4 text-gray-600">包含音樂、美術、舞蹈、戲劇班。</td>
                     </tr>
 
-                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="five spec" data-start="0611" data-end="0611">
-                        <td class="p-4 font-medium text-gray-600">6/11 (四)</td>
+                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="art" data-start="0607" data-end="0607">
+                        <td class="p-4 font-medium text-gray-600">6/7 (日)</td>
                         <td class="p-4 leading-relaxed">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專優免</span>放榜</div>
-                            <div><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>專業群科：放榜</div>
+                            <span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">運動績優</span>
+                            運動績優生(甄試)術科檢定
                         </td>
                         <td class="p-4 text-gray-600"></td>
+                    </tr>
+
+                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="prior five spec" data-start="0611" data-end="0611">
+                        <td class="p-4 font-bold text-blue-700">6/11 (四)</td>
+                        <td class="p-4 leading-relaxed">
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完免/優免</span>各校直升入學放榜截止日</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專優免</span>五專優先免試入學放榜</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>專業群科甄選入學放榜</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">技優/實用</span>技優甄審入學、實用技能學程放榜</div>
+                            <div><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專完免</span>五專完全免試入學<span class="text-red-600 font-bold">報到截止日</span></div>
+                        </td>
+                        <td class="p-4 text-gray-600">特殊與早鳥管道放榜日。</td>
                     </tr>
 
                     <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="prior spec" data-start="0612" data-end="0612">
                         <td class="p-4 font-medium text-gray-600">6/12 (五)</td>
                         <td class="p-4 leading-relaxed">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完全免試</span>報到</div>
-                            <div><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>專業群科：報到</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完免/優免</span>學習區完全免試入學報到</div>
+                            <div><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>特招群科、技優甄審、實用技能學程報到</div>
                         </td>
                         <td class="p-4 text-gray-600"></td>
                     </tr>
 
-                    <tr class="schedule-row hover:bg-orange-100 transition-colors bg-orange-50" data-categories="prior spec five" data-start="0615" data-end="0615">
+                    <tr class="schedule-row hover:bg-orange-100 transition-colors bg-orange-50 border-l-4 border-orange-400" data-categories="prior spec five" data-start="0615" data-end="0615">
                         <td class="p-4 font-bold text-orange-600">6/15 (一)</td>
                         <td class="p-4 leading-relaxed">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完免/優免</span>放棄錄取資格截止</div>
-                            <div><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>專業群科：放棄錄取截止</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold mr-2">完免/優免</span>各就學區優免放榜與報到截止日</div>
+                            <div class="mb-1 font-bold text-orange-800 border-b border-orange-200 pb-1">▼ 以下為各管道【聲明放棄錄取資格】截止日 ▼</div>
+                            <div class="text-sm mt-1">
+                                <span class="mr-3 text-gray-700">【五專】優先免試、完全免試</span><br>
+                                <span class="mr-3 text-gray-700">【完免/優免】學習區完免、各校直升</span><br>
+                                <span class="mr-3 text-gray-700">【特色招生】專業群科、技優、實用技能學程</span>
+                            </div>
                         </td>
-                        <td class="p-4 text-orange-800 font-medium">⚠️ 若想反悔參加「大免」，務必於今日前完成聲明放棄。</td>
+                        <td class="p-4 text-orange-800 font-medium">⚠️ 若已錄取上述管道，但想反悔參加後續的「大免」，務必於今日前完成聲明放棄手續。</td>
                     </tr>
 
                     <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="spec" data-start="0616" data-end="0618">
@@ -238,17 +260,18 @@
                     <tr class="schedule-row bg-blue-100 hover:bg-blue-200 transition-colors border-l-4 border-blue-600" data-categories="main" data-start="0618" data-end="0618">
                         <td class="p-4 font-bold text-blue-800">6/18 (四)</td>
                         <td class="p-4 leading-relaxed font-bold text-blue-900">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>個人序位區間公布</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>各就學區免試入學公告實際招生名額</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>開放個人序位查詢</div>
                             <div><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>志願選填開始</div>
                         </td>
-                        <td class="p-4 text-blue-800">🎯 全國最主要的升學管道起跑。（請以各區簡章為準）</td>
+                        <td class="p-4 text-blue-800">🎯 全國最主要的升學管道起跑。（請以各就學區簡章為準）</td>
                     </tr>
 
                     <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="five" data-start="0618" data-end="0625">
                         <td class="p-4 font-medium text-gray-600">6/18 ~ 6/25</td>
                         <td class="p-4 leading-relaxed">
                             <span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2 mb-1">五專聯免</span>
-                            聯合免試入學報名
+                            五專聯合免試入學報名
                         </td>
                         <td class="p-4 text-gray-600"></td>
                     </tr>
@@ -262,61 +285,87 @@
                         <td class="p-4 text-gray-600"></td>
                     </tr>
 
-                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="art" data-start="0622" data-end="0626">
+                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="spec art" data-start="0622" data-end="0626">
                         <td class="p-4 font-medium text-gray-600">6/22 ~ 6/26</td>
                         <td class="p-4 leading-relaxed">
-                            <span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">藝才班</span>
-                            甄選入學：志願選填
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">運動績優</span>運動績優生(甄審、甄試)放榜 (6/22)</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>考試分發開放網路查詢分數 (6/22)</div>
+                            <div><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">藝才班</span>音樂、美術、舞蹈班 志願選填 (6/22-26)</div>
                         </td>
                         <td class="p-4 text-gray-600"></td>
                     </tr>
 
-                    <tr class="schedule-row bg-blue-100 hover:bg-blue-200 transition-colors border-l-4 border-blue-600" data-categories="main spec five" data-start="0625" data-end="0625">
+                    <tr class="schedule-row bg-blue-100 hover:bg-blue-200 transition-colors border-l-4 border-blue-600" data-categories="main spec" data-start="0625" data-end="0625">
                         <td class="p-4 font-bold text-blue-800">6/25 (四)</td>
                         <td class="p-4 leading-relaxed font-bold text-blue-900">
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>志願選填截止</div>
-                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>考試分發志願選填截止</div>
-                            <div><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專聯免</span>報名截止</div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>個人序位查詢截止</div>
+                            <div><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>免試入學、特色招生考試分發<span class="text-red-600">志願選填截止日</span></div>
                         </td>
                         <td class="p-4 text-blue-800 font-bold">❗ 務必於期限前確認所有志願序並完成系統送出作業。</td>
+                    </tr>
+
+                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="main spec" data-start="0630" data-end="0630">
+                        <td class="p-4 font-medium text-gray-600">6/30 (二)</td>
+                        <td class="p-4 leading-relaxed">
+                            <span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2 mb-1">分區大免</span>
+                            各就學區免試入學、特色招生考試分發<span class="text-red-600 font-bold">報名截止日</span>
+                        </td>
+                        <td class="p-4 text-gray-600">向各校送交列印出之志願表。</td>
                     </tr>
 
                     <tr class="schedule-row bg-blue-50 hover:bg-blue-100 transition-colors border-l-4 border-blue-400" data-categories="main spec art" data-start="0707" data-end="0707">
                         <td class="p-4 font-bold text-blue-700">7/7 (二)</td>
                         <td class="p-4 leading-relaxed">
-                            <div class="mb-1 font-bold text-blue-900"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>放榜公告</div>
-                            <div class="mb-1 text-gray-700"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>考試分發放榜</div>
-                            <div class="text-gray-700"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">藝才班</span>甄選分發放榜</div>
+                            <div class="mb-1 font-bold text-blue-900"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>各就學區免試入學放榜</div>
+                            <div class="mb-1 text-gray-700"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>考試分發入學放榜</div>
+                            <div class="text-gray-700"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">藝才班</span>甄選分發放榜 (含戲劇班)</div>
                         </td>
                         <td class="p-4 text-blue-800 font-medium">🎊 錄取名單正式公告。</td>
                     </tr>
 
-                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="art" data-start="0708" data-end="0708">
+                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="five art spec" data-start="0708" data-end="0708">
                         <td class="p-4 font-medium text-gray-600">7/8 (三)</td>
                         <td class="p-4 leading-relaxed">
-                            <span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">藝才班</span>
-                            甄選入學：報到
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專聯免</span>五專聯合免試入學<span class="font-bold text-gray-900">現場登記分發報到</span></div>
+                            <div class="mb-1"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">藝才班</span>甄選入學報到</div>
+                            <div><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>專業群科續招學校簡章公告截止</div>
                         </td>
-                        <td class="p-4 text-gray-600"></td>
+                        <td class="p-4 text-gray-600 text-sm">五專聯免撕榜日。</td>
                     </tr>
 
-                    <tr class="schedule-row bg-blue-50 hover:bg-blue-100 transition-colors border-l-4 border-blue-400" data-categories="main five spec art" data-start="0709" data-end="0709">
+                    <tr class="schedule-row bg-blue-50 hover:bg-blue-100 transition-colors border-l-4 border-blue-400" data-categories="main spec art" data-start="0709" data-end="0709">
                         <td class="p-4 font-bold text-blue-700">7/9 (四)</td>
                         <td class="p-4 leading-relaxed">
-                            <div class="mb-1 font-bold text-blue-900"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>正式報到</div>
-                            <div class="text-gray-700 mb-1"><span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold mr-2">五專聯免</span>現場登記分發報到</div>
-                            <div class="text-gray-700"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色/體育</span>錄取報到</div>
+                            <div class="mb-1 font-bold text-blue-900"><span class="inline-block px-2 py-1 bg-blue-600 text-white rounded text-xs font-bold mr-2">分區大免</span>各就學區免試入學報到</div>
+                            <div class="text-gray-700 mb-1"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>考試分發入學報到</div>
+                            <div class="text-gray-700 mb-1"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">體育/運動</span>體育班、運動績優生報到</div>
+                            <div class="text-gray-700 mb-1"><span class="inline-block px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-bold mr-2">特色招生</span>建教合作班報到截止日</div>
+                            <div class="text-gray-700"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2">藝才班</span>報到後聲明放棄錄取資格</div>
                         </td>
-                        <td class="p-4 text-blue-800 font-medium">🏫 錄取學生務必依各校規定前往報到。</td>
+                        <td class="p-4 text-blue-800 font-medium">🏫 大免錄取學生務必依各校規定前往報到。</td>
                     </tr>
 
-                    <tr class="schedule-row hover:bg-blue-50 transition-colors" data-categories="five spec art" data-start="0713" data-end="0713">
+                    <tr class="schedule-row hover:bg-orange-50 transition-colors border-l-4 border-gray-300" data-categories="main five spec art" data-start="0713" data-end="0713">
                         <td class="p-4 font-medium text-gray-600">7/13 (一)</td>
                         <td class="p-4 leading-relaxed">
-                            <span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">其他管道</span>
-                            放棄錄取資格截止
+                            <div class="mb-1 font-bold text-gray-800 border-b border-gray-200 pb-1">▼ 各類最終管道【聲明放棄錄取資格】截止 ▼</div>
+                            <div class="text-sm mt-1">
+                                <span class="mr-3 text-gray-700">【免試入學】各就學區大免</span><br>
+                                <span class="mr-3 text-gray-700">【五專】五專聯合免試</span><br>
+                                <span class="mr-3 text-gray-700">【特色招生】考試分發</span><br>
+                                <span class="mr-3 text-gray-700">【其他】體育班、運動績優</span>
+                            </div>
                         </td>
-                        <td class="p-4 text-gray-600">包含五專聯免、特招與體育班。</td>
+                        <td class="p-4 text-gray-600 text-sm">若欲參加後續各校獨立續招，須於此時放棄資格。</td>
+                    </tr>
+
+                    <tr class="schedule-row hover:bg-gray-50 transition-colors" data-categories="main" data-start="0728" data-end="0728">
+                        <td class="p-4 font-medium text-gray-500">7/28 (二)</td>
+                        <td class="p-4 leading-relaxed">
+                            <span class="inline-block px-2 py-1 bg-gray-200 text-gray-600 rounded text-xs font-bold mr-2 mb-1">分區大免</span>
+                            各就學區高級中等學校免試入學續招學校簡章公告截止日
+                        </td>
+                        <td class="p-4 text-gray-500 text-sm">最後補救機會。</td>
                     </tr>
 
                 </tbody>
@@ -395,20 +444,19 @@
 
                 if (!start || !end) continue;
 
-                // 如果今天剛好在這個事件的日期區間內，亮起黃色小標籤
+                // 若今日在此事件區間內，標記為今日進度
                 if (todayStr >= start && todayStr <= end) {
                     const firstTd = row.querySelector('td');
                     firstTd.innerHTML = `<div class="inline-block bg-yellow-400 text-yellow-900 px-2 py-0.5 rounded text-xs font-bold mb-2 shadow-sm animate-pulse">👉 今日進度</div><br>` + firstTd.innerHTML;
                     row.classList.add('bg-yellow-50');
                 }
 
-                // 在時間軸找到第一個「大於今天日期」的事件，並在它前面插入一條分隔線
+                // 插入時間分隔線
                 if (!dividerInserted && start > todayStr) {
                     const tr = document.createElement('tr');
                     tr.className = 'bg-yellow-200 border-y-2 border-yellow-500 no-print shadow-sm';
                     tr.innerHTML = `<td colspan="3" class="p-3 text-center text-yellow-900 font-bold tracking-wider text-sm md:text-base">📍 今天是 ${currentM} 月 ${currentD} 日，目前進度在這裡 📍</td>`;
                     
-                    // 如果今天日期在 6/5 以前，強制展開歷史紀錄，否則家長會看不到這條黃色分隔線
                     if (todayStr <= "0605") {
                         togglePastEvents(true);
                     }
@@ -418,8 +466,8 @@
                 }
             }
 
-            // 如果今天已經超過了 7/13 (最後一個事件)，就將進度條加在表格最底部
-            if (!dividerInserted && todayStr > "0713") {
+            // 超過最後事件的防呆處理
+            if (!dividerInserted && todayStr > "0728") {
                 const tr = document.createElement('tr');
                 tr.className = 'bg-yellow-200 border-y-2 border-yellow-500 no-print shadow-sm';
                 tr.innerHTML = `<td colspan="3" class="p-3 text-center text-yellow-900 font-bold tracking-wider text-sm md:text-base">📍 今天是 ${currentM} 月 ${currentD} 日，115學年度升學日程已全數結束 📍</td>`;
