@@ -10,7 +10,7 @@
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: #f3f4f6;
-            overflow-x: hidden; /* 防止側邊欄滑出時產生水平卷軸 */
+            overflow-x: hidden; 
         }
         
         /* 動態篩選的灰階狀態 */
@@ -50,7 +50,6 @@
             accent-color: #2563eb;
         }
 
-        /* 列印樣式設定 */
         @media print {
             body { background-color: #ffffff; }
             .print-shadow-none { box-shadow: none !important; }
@@ -64,8 +63,10 @@
 </head>
 <body class="p-4 md:p-8 text-gray-800">
 
+    <!-- 側邊欄背景遮罩 -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden opacity-0 transition-opacity duration-300 no-print"></div>
 
+    <!-- 側邊欄 (預設隱藏在右側) -->
     <div id="info-sidebar" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto no-print">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white z-10 shadow-sm">
             <h2 class="text-xl font-bold text-gray-800 flex items-center">
@@ -78,6 +79,7 @@
         </div>
         
         <div class="p-5 space-y-6">
+            <!-- 大免 -->
             <div>
                 <h3 class="text-lg font-bold text-blue-800 border-l-4 border-blue-600 pl-2 mb-2">分區大免 (免試入學)</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">
@@ -85,6 +87,7 @@
                 </p>
             </div>
             
+            <!-- 完免/優免 -->
             <div>
                 <h3 class="text-lg font-bold text-green-800 border-l-4 border-green-600 pl-2 mb-2">完免 / 優免 / 直升</h3>
                 <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc list-outside ml-4">
@@ -94,6 +97,7 @@
                 </ul>
             </div>
 
+            <!-- 五專 -->
             <div>
                 <h3 class="text-lg font-bold text-purple-800 border-l-4 border-purple-600 pl-2 mb-2">五專 (優免 / 聯免)</h3>
                 <p class="text-gray-600 text-sm leading-relaxed mb-2">適合志向明確（如護理、外語、電機等），且希望提早接觸專業科目的學生。</p>
@@ -103,6 +107,7 @@
                 </ul>
             </div>
 
+            <!-- 特招/技優/實用技能 -->
             <div>
                 <h3 class="text-lg font-bold text-teal-800 border-l-4 border-teal-600 pl-2 mb-2">特招 / 技優 / 實用技能</h3>
                 <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc list-outside ml-4">
@@ -113,6 +118,7 @@
                 </ul>
             </div>
 
+            <!-- 藝才/體育 -->
             <div>
                 <h3 class="text-lg font-bold text-gray-700 border-l-4 border-gray-500 pl-2 mb-2">藝才 / 體育 / 運動績優</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">
@@ -128,13 +134,15 @@
         </div>
     </div>
 
-    <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg print-shadow-none print-border overflow-hidden mt-4 md:mt-8">
+    <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg print-shadow-none print-border overflow-hidden">
         
+        <!-- 表頭區塊 -->
         <div class="bg-blue-600 text-white p-6 md:p-8 text-center relative overflow-hidden">
             <h1 class="text-2xl md:text-3xl font-bold tracking-wider mb-2 relative z-10">115 學年度 國中會考後重要升學時程表</h1>
             <p class="text-blue-100 md:text-lg relative z-10">專屬升學備忘錄：請勾選欲參加的管道</p>
         </div>
 
+        <!-- 篩選控制面板 -->
         <div class="bg-blue-50 border-b border-blue-200 p-4 md:p-6 no-print flex flex-col md:flex-row md:items-start justify-between gap-4">
             <div class="flex-1">
                 <h3 class="font-bold text-blue-800 mb-3 flex items-center">
@@ -160,6 +168,7 @@
                 </div>
             </div>
             
+            <!-- 右側按鈕群組 -->
             <div class="flex flex-col gap-2 mt-2 md:mt-0 md:ml-4 w-full md:w-auto">
                 <button id="open-sidebar-btn" class="w-full md:w-auto px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-800 font-bold rounded shadow-sm transition border border-blue-300 flex items-center justify-center text-sm">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -172,6 +181,7 @@
             </div>
         </div>
 
+        <!-- 表格區塊 -->
         <div class="overflow-x-auto p-4 md:p-8">
             <table class="w-full text-left border-collapse">
                 <thead>
@@ -183,6 +193,7 @@
                 </thead>
                 <tbody class="text-sm md:text-base divide-y divide-gray-200" id="schedule-body">
                     
+                    <!-- ================= 過去式時程 ================= -->
                     <tr class="schedule-row past-event hover:bg-gray-50 transition-colors" data-categories="art" data-start="0223" data-end="0309">
                         <td class="p-4 font-medium text-gray-600">2/23 ~ 3/9</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-bold mr-2 mb-1">藝才班</span>術科測驗報名</td>
@@ -255,10 +266,12 @@
                         <td class="p-4 text-gray-600 text-sm">直升校內高中職之管道報名作業。</td>
                     </tr>
 
+                    <!-- 分隔線 (僅在展開時顯示) -->
                     <tr class="past-event bg-gray-200 border-b-2 border-gray-400">
                         <td colspan="3" class="p-3 text-center text-gray-700 font-bold tracking-widest text-sm">⬆️ 以上為 6/5 前之歷史紀錄 ⬆️</td>
                     </tr>
 
+                    <!-- ================= 以下為 6/5 起之主要時程 ================= -->
                     <tr class="schedule-row bg-red-50 hover:bg-red-100 transition-colors border-l-4 border-red-500" data-categories="base" data-start="0605" data-end="0605">
                         <td class="p-4 font-bold text-red-700">6/5 (五)</td>
                         <td class="p-4 leading-relaxed font-bold text-red-900">
@@ -446,6 +459,7 @@
         </div>
     </div>
 
+    <!-- 邏輯 JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const toggles = document.querySelectorAll('.channel-toggle');
@@ -482,7 +496,6 @@
 
             function openSidebar() {
                 overlay.classList.remove('hidden');
-                // 利用小延遲讓 transition 有效
                 setTimeout(() => {
                     overlay.classList.remove('opacity-0');
                     sidebar.classList.remove('translate-x-full');
@@ -494,7 +507,7 @@
                 sidebar.classList.add('translate-x-full');
                 setTimeout(() => {
                     overlay.classList.add('hidden');
-                }, 300); // 等待動畫結束再隱藏
+                }, 300);
             }
 
             openSidebarBtn.addEventListener('click', openSidebar);
