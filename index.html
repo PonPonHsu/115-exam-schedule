@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            /* 網頁底色改為無填滿 (透明) */
+            /* 網頁底色改為無填滿 (透明/純白) */
             background-color: transparent; 
             overflow-x: hidden; 
         }
@@ -133,13 +133,13 @@
         </div>
     </div>
 
-    <!-- 👑 大改造：將外框建立在完整的 Table 結構上，確保跨頁時表頭與外框完美重複 -->
+    <!-- 👑 大改造：只留左右外框 (border-x-2) -->
     <div class="max-w-5xl mx-auto print-shadow-none">
         
-        <table class="w-full text-left border-collapse border-2 border-[#302821] bg-transparent">
+        <table class="w-full text-left border-collapse border-x-2 border-[#302821] bg-transparent">
             
-            <!-- 表頭區塊 (thead)：換頁時會自動重複印出！ -->
-            <thead class="print:table-header-group">
+            <!-- 表頭區塊 (thead)：換頁時會自動重複印出，並加上頂部框線 (border-t-2) 完美閉合上方 -->
+            <thead class="print:table-header-group border-t-2 border-[#302821]">
                 
                 <!-- 第一列：標題列與篩選器 -->
                 <tr class="border-b-4 border-[#302821]">
@@ -549,9 +549,16 @@
                         <td class="p-4 text-[#8C7A6B] text-sm">最後補救機會。</td>
                     </tr>
 
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+            
+            <!-- 表尾 (tfoot)：換頁時會自動重複印出，並加上底部框線 (border-b-2) 完美閉合下方 -->
+            <tfoot class="print:table-footer-group border-b-2 border-[#302821]">
+                <tr>
+                    <td colspan="3" class="p-0 leading-none h-0 border-none text-[0px]"></td>
+                </tr>
+            </tfoot>
+            
+        </table>
     </div>
 
     <!-- 邏輯 JavaScript -->
