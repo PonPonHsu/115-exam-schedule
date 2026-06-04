@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            /* 螢幕預覽用：模擬牛皮紙的底色 */
-            background-color: #D6C4A9; 
+            /* 網頁底色改為無填滿 (透明/純白) */
+            background-color: transparent; 
             overflow-x: hidden; 
         }
         
@@ -68,13 +68,10 @@
         }
     </style>
 </head>
-<!-- 主要文字使用極深的咖啡黑，確保在牛皮紙上清晰可見 -->
 <body class="p-4 md:p-8 text-[#302821]"> 
 
-    <!-- 側邊欄背景遮罩 -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden opacity-0 transition-opacity duration-300 no-print"></div>
 
-    <!-- 側邊欄 (預設隱藏在右側) -->
     <div id="info-sidebar" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-[#EBE0C8] shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto no-print">
         <div class="p-5 border-b-2 border-[#302821] flex justify-between items-center sticky top-0 bg-[#EBE0C8] z-10">
             <h2 class="text-xl font-bold text-[#302821] flex items-center">
@@ -128,21 +125,16 @@
         </div>
     </div>
 
-    <!-- 拔除外層圓角與背景填滿，改用剛硬實線邊框 -->
     <div class="max-w-5xl mx-auto bg-transparent border-2 border-[#302821] rounded-none print-shadow-none overflow-hidden">
         
-        <!-- 表頭區塊：透明背景、黑色底線 -->
         <div class="bg-transparent p-6 md:p-8 flex flex-col md:flex-row items-center justify-between border-b-4 border-[#302821] relative">
-            <!-- 補習班 LOGO：相對路徑，無圓角 -->
             <img src="./吾思logo-文件浮水印.jpg" alt="補習班LOGO" class="h-12 md:h-16 object-contain mb-4 md:mb-0 rounded-none print:h-16">
             
             <div class="text-center md:text-right">
-                <!-- 網頁版與列印版標題 (依賴 JS 修改文字) -->
                 <h1 id="main-title" class="text-2xl md:text-3xl font-bold tracking-widest text-[#302821]">115 學年度 國中會考後重要升學時程表 (基北區)</h1>
             </div>
         </div>
 
-        <!-- 篩選控制面板：透明背景，按鈕鏤空化 -->
         <div class="bg-transparent border-b-2 border-[#302821] p-4 md:p-6 no-print flex flex-col md:flex-row md:items-start justify-between gap-4">
             <div class="flex-1">
                 <h3 class="font-bold text-[#302821] mb-3 flex items-center">
@@ -150,32 +142,30 @@
                     篩選入學管道 (未勾選的項目將淡化)
                 </h3>
                 <div class="flex flex-wrap gap-3 text-sm md:text-base">
-                    <!-- 標籤按鈕改為透明鏤空，深色框線 -->
-                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#D6C4A9] transition">
+                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#fff] transition">
                         <input type="checkbox" class="channel-toggle" value="main" checked> 分區大免
                     </label>
-                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#D6C4A9] transition">
+                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#fff] transition">
                         <input type="checkbox" class="channel-toggle" value="prior" checked> 優免/完免/直升
                     </label>
-                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#D6C4A9] transition">
+                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#fff] transition">
                         <input type="checkbox" class="channel-toggle" value="five" checked> 五專 (優免/聯免)
                     </label>
-                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#D6C4A9] transition">
+                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#fff] transition">
                         <input type="checkbox" class="channel-toggle" value="spec" checked> 特招/技優/實用技能
                     </label>
-                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#D6C4A9] transition">
+                    <label class="checkbox-label font-bold text-[#302821] bg-transparent px-3 py-2 rounded-none border border-[#302821] hover:bg-[#302821] hover:text-[#fff] transition">
                         <input type="checkbox" class="channel-toggle" value="art" checked> 藝才/體育/運動績優
                     </label>
                 </div>
             </div>
             
-            <!-- 右側按鈕群組：實線方框復古風 -->
             <div class="flex flex-col gap-2 mt-2 md:mt-0 md:ml-4 w-full md:w-auto">
-                <button id="open-sidebar-btn" class="w-full md:w-auto px-4 py-2 bg-transparent text-[#302821] font-bold rounded-none border-2 border-[#302821] hover:bg-[#302821] hover:text-[#D6C4A9] transition flex items-center justify-center text-sm">
+                <button id="open-sidebar-btn" class="w-full md:w-auto px-4 py-2 bg-transparent text-[#302821] font-bold rounded-none border-2 border-[#302821] hover:bg-[#302821] hover:text-[#fff] transition flex items-center justify-center text-sm">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     📖 升學管道簡介
                 </button>
-                <button id="toggle-past-btn" class="w-full md:w-auto px-4 py-2 bg-transparent text-[#302821] font-bold rounded-none border-2 border-[#302821] hover:bg-[#302821] hover:text-[#D6C4A9] transition flex items-center justify-center text-sm">
+                <button id="toggle-past-btn" class="w-full md:w-auto px-4 py-2 bg-transparent text-[#302821] font-bold rounded-none border-2 border-[#302821] hover:bg-[#302821] hover:text-[#fff] transition flex items-center justify-center text-sm">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span id="btn-text">展開 6/5 前的歷史紀錄</span>
                 </button>
@@ -186,7 +176,6 @@
             </div>
         </div>
 
-        <!-- 表格區塊：完全透明無底色，僅用語意化的礦物深色標籤 -->
         <div class="overflow-x-auto p-4 md:p-8 bg-transparent">
             <table class="w-full text-left border-collapse">
                 <thead>
@@ -196,19 +185,12 @@
                         <th class="p-4 font-bold w-2/5 min-w-[200px]">備註與提醒事項</th>
                     </tr>
                 </thead>
-                <!-- 分隔線統一用復古深咖色 -->
                 <tbody class="text-sm md:text-base divide-y divide-[#8C7A6B]" id="schedule-body">
                     
-                    <!-- ================= 過去式時程 ================= -->
                     <tr class="schedule-row past-event bg-transparent" data-categories="art" data-start="0223" data-end="0309">
                         <td class="p-4 font-bold">2/23 ~ 3/9</td>
                         <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-0.5 bg-[#8B5A2B] text-white rounded-sm text-xs font-bold mr-2 mb-1">藝才班</span>術科測驗報名</td>
                         <td class="p-4 text-sm">音樂/美術/舞蹈/戲劇班甄選。</td>
-                    </tr>
-                    <tr class="schedule-row past-event bg-transparent" data-categories="base" data-start="0305" data-end="0307">
-                        <td class="p-4 font-bold">3/5 ~ 3/7</td>
-                        <td class="p-4 leading-relaxed"><span class="inline-block px-2 py-0.5 bg-[#9C3A3A] text-white rounded-sm text-xs font-bold mr-2 mb-1">共同</span>國中教育會考報名</td>
-                        <td class="p-4 text-sm">由國中端集體報名。</td>
                     </tr>
                     <tr class="schedule-row past-event bg-transparent" data-categories="spec" data-start="0309" data-end="0313">
                         <td class="p-4 font-bold">3/9 ~ 3/13</td>
@@ -311,7 +293,7 @@
                                 <span class="inline-block px-2 py-0.5 bg-[#556B2F] text-white rounded-sm text-xs font-bold mr-2">優免/完免(新北)</span>新北市公立優免校內報名 (6/2 09:00 - 6/8 12:00)
                             </div>
                         </td>
-                        <td class="p-4 text-sm">基北區各類優免主要報名期。由各國中端受理校內報名。</td>
+                        <td class="p-4 text-sm">由各國中端受理校內報名。</td>
                     </tr>
                     <tr class="schedule-row past-event bg-transparent" data-categories="prior" data-start="0608" data-end="0608">
                         <td class="p-4 font-bold">6/8 (一)</td>
@@ -321,12 +303,10 @@
                         <td class="p-4 text-sm"></td>
                     </tr>
 
-                    <!-- 分隔線 (僅在展開時顯示) -->
                     <tr class="past-event bg-transparent">
                         <td colspan="3" class="p-3 text-center font-bold tracking-widest text-sm border-y-2 border-[#302821]">⬆️ 以上為 6/5 前開始之前置作業 ⬆️</td>
                     </tr>
 
-                    <!-- ================= 以下為 6/5 起之主要時程 ================= -->
                     <tr class="schedule-row bg-transparent border-l-4 border-[#9C3A3A]" data-categories="base" data-start="0605" data-end="0605">
                         <td class="p-4 font-bold text-[#9C3A3A]">6/5 (五)</td>
                         <td class="p-4 leading-relaxed font-bold">
@@ -352,14 +332,6 @@
                             運動績優生(甄試)術科檢定
                         </td>
                         <td class="p-4"></td>
-                    </tr>
-
-                    <tr class="schedule-row bg-transparent" data-categories="prior" data-start="0610" data-end="0610">
-                        <td class="p-4 font-bold">6/10 (三)</td>
-                        <td class="p-4 leading-relaxed">
-                            <span class="inline-block px-2 py-0.5 bg-[#556B2F] text-white rounded-sm text-xs font-bold mr-2 mb-1">優免/完免(台北)</span>第二類優免集體報名送件 (09:00~15:00)
-                        </td>
-                        <td class="p-4 text-sm">國中端代為繳件 (校內收件時間依各校規定)。</td>
                     </tr>
 
                     <tr class="schedule-row bg-transparent" data-categories="prior five spec" data-start="0611" data-end="0611">
@@ -554,7 +526,6 @@
         </div>
     </div>
 
-    <!-- 邏輯 JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const toggles = document.querySelectorAll('.channel-toggle');
@@ -572,12 +543,12 @@
                 if (isPastShown) {
                     pastEvents.forEach(el => el.classList.add('show-past'));
                     btnText.innerText = '收合 6/5 前的歷史紀錄';
-                    pastBtn.classList.add('bg-[#302821]', 'text-[#D6C4A9]');
+                    pastBtn.classList.add('bg-[#302821]', 'text-[#fff]');
                     pastBtn.classList.remove('bg-transparent', 'text-[#302821]');
                 } else {
                     pastEvents.forEach(el => el.classList.remove('show-past'));
                     btnText.innerText = '展開 6/5 前的歷史紀錄';
-                    pastBtn.classList.remove('bg-[#302821]', 'text-[#D6C4A9]');
+                    pastBtn.classList.remove('bg-[#302821]', 'text-[#fff]');
                     pastBtn.classList.add('bg-transparent', 'text-[#302821]');
                 }
             }
